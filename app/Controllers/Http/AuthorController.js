@@ -80,7 +80,9 @@ class AuthorController {
     const author = await Author.find(params.id);
 
     if (!author) {
-      return response.status(404).json({ data: 'Author not found' });
+      return response.status(404).json({
+        data: 'Author not found'
+      });
     }
 
     author.first_name = authorInfo.first_name;
