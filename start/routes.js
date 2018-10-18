@@ -18,7 +18,23 @@ const Route = use('Route')
 
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
-})
+});
 
-Route.resource('authors', 'AuthorController').apiOnly();
-Route.resource('books', 'BookController').apiOnly();
+Route.resource('authors', 'AuthorController')
+  .apiOnly()
+  .middleware(new Map([
+    [
+        ['store', 'update', 'destroy'],
+        ['auth']
+      ]
+    ]));
+
+Route.resource('books', 'BookController')
+  .apiOnly()
+  .middleware(new Map([
+      [
+        ['store', 'update', 'destroy'],
+        ['auth']
+      ]
+    ]));
+
