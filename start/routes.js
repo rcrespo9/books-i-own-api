@@ -20,5 +20,5 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.resource('authors', 'AuthorController').except(['edit', 'create']);
-Route.resource('books', 'BookController').except(['edit', 'create']);
+Route.resource('authors', 'AuthorController').apiOnly();
+Route.resource('books', 'BookController').apiOnly();
