@@ -54,6 +54,7 @@ class BookController {
     book.is_read = is_read;
     book.is_favorite = is_favorite;
     book.first_publish_year = first_publish_year;
+    book.read_date = read_date
 
     await book.save();
 
