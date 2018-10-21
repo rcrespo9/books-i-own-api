@@ -17,8 +17,13 @@
 const Route = use('Route')
 
 Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+  return { greeting: 'Welcome to the Books I Own API!' }
 });
+
+Route.post('login', 'AuthController.login');
+Route.get('logout', 'AuthController.logout');
+
+// Route.post('register', 'AuthController.register')
 
 Route.resource('authors', 'AuthorController')
   .apiOnly()

@@ -35,16 +35,25 @@ class BookController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
-    const bookInfo = request.only(['title', 'author_id', 'isbn', 'cover_url', 'is_read', 'is_favorite', 'first_publish_year', 'read_date']);
+    const {
+      title,
+      author_id,
+      isbn,
+      cover_url,
+      is_read,
+      is_favorite,
+      first_publish_year,
+      read_date
+    } = request.all();
 
     const book = new Book();
-    book.title = bookInfo.title;
-    book.author_id = bookInfo.author_id;
-    book.isbn = bookInfo.isbn;
-    book.cover_url = bookInfo.cover_url;
-    book.is_read = bookInfo.is_read;
-    book.is_favorite = bookInfo.is_favorite;
-    book.first_publish_year = bookInfo.first_publish_year;
+    book.title = title;
+    book.author_id = author_id;
+    book.isbn = isbn;
+    book.cover_url = cover_url;
+    book.is_read = is_read;
+    book.is_favorite = is_favorite;
+    book.first_publish_year = first_publish_year;
 
     await book.save();
 
@@ -80,7 +89,16 @@ class BookController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
-    const bookInfo = request.only(['title', 'author_id', 'isbn', 'cover_url', 'is_read', 'is_favorite', 'first_publish_year', 'read_date']);
+    const {
+      title,
+      author_id,
+      isbn,
+      cover_url,
+      is_read,
+      is_favorite,
+      first_publish_year,
+      read_date
+    } = request.all();
 
     const book = await Book.find(params.id);
 
@@ -88,13 +106,13 @@ class BookController {
       return response.status(404).json({ data: 'Book not found' });
     }
 
-    book.title = bookInfo.title;
-    book.author_id = bookInfo.author_id;
-    book.isbn = bookInfo.isbn;
-    book.cover_url = bookInfo.cover_url;
-    book.is_read = bookInfo.is_read;
-    book.is_favorite = bookInfo.is_favorite;
-    book.first_publish_year = bookInfo.first_publish_year;
+    book.title = title;
+    book.author_id = author_id;
+    book.isbn = isbn;
+    book.cover_url = cover_url;
+    book.is_read = is_read;
+    book.is_favorite = is_favorite;
+    book.first_publish_year = first_publish_year;
 
     await book.save();
 

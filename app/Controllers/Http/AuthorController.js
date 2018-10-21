@@ -35,11 +35,14 @@ class AuthorController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
-    const authorInfo = request.only(['first_name', 'last_name']);
+    const {
+      first_name,
+      last_name
+    } = request.all();
     
     const author = new Author();
-    author.first_name = authorInfo.first_name;
-    author.last_name = authorInfo.last_name;
+    author.first_name = first_name;
+    author.last_name = last_name;
 
     await author.save();
 
@@ -75,7 +78,10 @@ class AuthorController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
-    const authorInfo = request.only(['first_name', 'last_name']);
+    const {
+      first_name,
+      last_name
+    } = request.all();
 
     const author = await Author.find(params.id);
 
@@ -85,8 +91,8 @@ class AuthorController {
       });
     }
 
-    author.first_name = authorInfo.first_name;
-    author.last_name = authorInfo.last_name;
+    author.first_name = first_name;
+    author.last_name = last_name;
 
     await author.save();
 
