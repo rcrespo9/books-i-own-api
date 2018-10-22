@@ -8,7 +8,7 @@ trait('Test/ApiClient')
 test('get list of books', async ({ client }) => {
   await Book.create({
     title: 'Huckleberry Finn',
-    isbn: '9783161484100',
+    isbn: '978-3-16-148410-0',
     cover_url: 'https://example.com',
     is_read: true,
     is_favorite: false,
@@ -21,7 +21,7 @@ test('get list of books', async ({ client }) => {
   response.assertStatus(200)
   response.assertJSONSubset([{
     title: 'Huckleberry Finn',
-    isbn: '9783161484100',
+    isbn: '978-3-16-148410-0',
     cover_url: 'https://example.com',
     is_read: 1,
     is_favorite: 0,
