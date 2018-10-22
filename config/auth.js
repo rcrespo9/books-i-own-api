@@ -2,6 +2,7 @@
 
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
+const ms = require('ms')
 
 module.exports = {
   /*
@@ -71,7 +72,7 @@ module.exports = {
     scheme: 'jwt',
     uid: 'username',
     password: 'password',
-    expiresIn: 3600,
+    expiresIn: ms('1hr'),
     options: {
       secret: Env.get('APP_KEY')
     }
