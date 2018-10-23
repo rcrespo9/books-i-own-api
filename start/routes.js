@@ -16,9 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
-  return { greeting: 'Welcome to the Books I Own API!' }
-});
+Route.on('/').render('welcome');
 
 Route.post('login', 'AuthController.login');
 
