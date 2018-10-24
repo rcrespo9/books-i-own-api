@@ -20,7 +20,7 @@ Route.on('/').render('welcome');
 
 Route.post('login', 'AuthController.login');
 
-// Route.post('register', 'AuthController.register')
+Route.post('register', 'AuthController.register')
 
 Route.resource('authors', 'AuthorController')
   .apiOnly()
