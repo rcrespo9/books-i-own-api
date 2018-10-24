@@ -11,18 +11,18 @@ class AuthController {
     return token
   }
 
-  async register ({ request, response }) {
-    const { username, email, password } = request.all();
+  // async register ({ request, response }) {
+  //   const { username, email, password } = request.all();
 
-    const user = new User();
-    user.username = username;
-    user.email = email;
-    user.password = password;
+  //   const user = new User();
+  //   user.username = username;
+  //   user.email = email;
+  //   user.password = password;
 
-    await user.save();
+  //   await user.save();
 
-    return response.status(201).json(user);
-  }
+  //   return response.status(201).json(user);
+  // }
 }
 
 module.exports = AuthController
