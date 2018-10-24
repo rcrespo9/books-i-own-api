@@ -1,2 +1,2 @@
 release: ENV_SILENT=true node ace migration:run --force
-web: ENV_SILENT=true DATABASE_URL=$(heroku config:get DATABASE_URL) DB_HOST=$(heroku config:get DB_HOST) DB_USER=$(heroku config:get DB_USER) DB_PASSWORD=$(heroku config:get DB_PASSWORD) DB_PORT=$(heroku config:get DB_PORT) DB_DATABASE=$(heroku config:get DB_DATABASE) npm start
+web: ENV_SILENT=true npm start
