@@ -21,7 +21,7 @@ class BookController {
     const books = await Book
       .query()
       .with('author')
-      .paginate()
+      .fetch()
 
       return response.json(books);
   }
